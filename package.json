@@ -1,6 +1,6 @@
-{
+﻿{
   "name": "dsh-tool-a2a",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A2A (Agent2Agent) client tools for DeepSeek Harness (DSH) agents: discover agent cards and send/get/cancel tasks over HTTP JSON-RPC.",
   "type": "module",
   "main": "lib/index.js",
