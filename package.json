@@ -1,0 +1,23 @@
+{
+  "name": "@deepseek-ai/dsh-tool-a2a",
+  "version": "0.1.0",
+  "description": "A2A (Agent2Agent) client tools for DSH agents: discover agent cards and send/get/cancel tasks over HTTP JSON-RPC.",
+  "type": "module",
+  "main": "lib/index.js",
+  "files": [
+    "lib"
+  ],
+  "keywords": [
+    "dsh",
+    "cordis",
+    "plugin",
+    "a2a",
+    "agent2agent",
+    "agent"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "@deepseek-ai/dsh-tools": "^0.1.0",
+    "@deepseek-ai/schemastery": "^0.1.0"
+  }
+}

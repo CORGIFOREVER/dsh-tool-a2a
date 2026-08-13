@@ -1,0 +1,11 @@
+{
+  "name": "dsh-a2a-bridge",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "LLM-backed A2A (Agent2Agent) server companion for dsh-tool-a2a.",
+  "dependencies": {
+    "@a2a-js/sdk": "^1.0.1",
+    "express": "^4.21.0"
+  }
+}

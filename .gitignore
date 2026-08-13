@@ -1,0 +1,9 @@
+node_modules/
+*.log
+.env
+.credentials.yaml
+bridge.config.json
+
+# tooling temp artifacts
+*.tmpdir
+
