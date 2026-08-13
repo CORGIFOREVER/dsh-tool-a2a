@@ -32,6 +32,7 @@ jobs:
         run: npm ci
 
       - name: Verify version matches tag
+        if: github.event_name == 'push'
         run: |
           TAG_VERSION="${GITHUB_REF_NAME#v}"
           PKG_VERSION=$(node -p "require('./package.json').version")
