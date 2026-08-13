@@ -1,9 +1,10 @@
-# Publish to npm via GitHub OIDC trusted publishing (provenance).
-# No npm token, no OTP: the npm registry verifies the GitHub OIDC identity token
-# against this repository (package.json `repository` field must match).
+# Publish to npm from GitHub Actions.
+# Auth: an npm Granular Access Token (Publish, bypass-2FA) stored in the NPM_TOKEN
+# repository secret. `--provenance` adds an OIDC-signed provenance attestation
+# (id-token: write) on top of the token authentication.
 #
 # Trigger: push a version tag, e.g.
-#   git tag v0.1.1 && git push origin v0.1.1
+#   git tag v0.1.2 && git push origin v0.1.2
 # (package.json version should match the tag, minus the leading "v")
 
 name: Publish to npm
@@ -18,7 +19,7 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     permissions:
-      id-token: write # required for npm provenance / OIDC trusted publishing
+      id-token: write # for npm provenance attestations
       contents: read
     steps:
       - uses: actions/checkout@v4
@@ -26,6 +27,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
+          registry-url: https://registry.npmjs.org
           cache: npm
 
       - name: Install dependencies
@@ -41,5 +43,7 @@ jobs:
             exit 1
           fi
 
-      - name: Publish to npm (provenance)
+      - name: Publish to npm
         run: npm publish --provenance --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
