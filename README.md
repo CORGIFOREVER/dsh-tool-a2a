@@ -92,6 +92,23 @@ A2A_URL=http://<host>:<port> node test-client.mjs
 Every A2A server advertises itself at `/.well-known/agent-card.json` — discover it with `a2a_discover` before
 messaging an unknown agent.
 
+## Releasing
+
+The package is published to npm automatically from GitHub Actions via **OIDC trusted publishing (provenance)** —
+no npm token and no OTP required.
+
+1. Bump `version` in `package.json` (e.g. `0.1.1`).
+2. Commit and push.
+3. Tag and push:
+
+```bash
+git tag v0.1.1
+git push origin v0.1.1
+```
+
+The workflow checks that the tag matches `package.json`'s version, then runs `npm publish --provenance --access public`.
+The npm registry verifies the GitHub OIDC identity against this repository's `repository` field.
+
 ## License
 
 MIT
