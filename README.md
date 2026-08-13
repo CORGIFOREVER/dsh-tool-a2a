@@ -27,14 +27,16 @@ Protocol details are hard-won and verified against the official `@a2a-js/sdk`:
 
 ```bash
 # from the profile directory (e.g. ~/.dsh/profiles/web)
-npm install <path-or-git-url-of-this-repo>
+npm install dsh-tool-a2a
+# or install straight from the repository:
+#   npm install git+https://github.com/CORGIFOREVER/dsh-tool-a2a.git
 ```
 
 Then add a row to the profile's `cordis.patch.yml`:
 
 ```yaml
 - id: tool-a2a
-  name: '@deepseek-ai/dsh-tool-a2a'
+  name: 'dsh-tool-a2a'
   config:
     baseUrl: <A2A server base URL>   # required — e.g. your local bridge, or any remote A2A agent
     timeoutMs: 120000                # optional
