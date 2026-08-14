@@ -23,6 +23,11 @@ Protocol details are hard-won and verified against the official `@a2a-js/sdk`:
 - v1.0 method names are PascalCase (`SendMessage`, `GetTask`, `CancelTask`, ...);
 - every message needs a `messageId`.
 
+For the full protocol reference — AgentCard discovery, wire formats, streaming (SSE), task states, and
+standing up your own endpoint — see [`docs/a2a-protocol.md`](docs/a2a-protocol.md). The same content is
+also available as a DSH skill (`a2a-client`) so agents can interoperate over A2A even without this plugin
+installed.
+
 ## Installation (into a DSH web profile)
 
 ```bash
